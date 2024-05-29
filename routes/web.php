@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController; 
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,24 @@ Route::get('/', function () {
 });
 
 
-    Route::get('/users', [UserController::class, 'listAllUsers'])->name('routeListAllUsers');
+    Route::get('/users', [UserController::class, 
+    'listAllUsers'])->name('ListAllUsers');
+
+
+
+    Route::match(
+        ['get' ,'post'],
+        '/login',
+        [AuthController::class, 'loginUser']
+    )->name('login');
+
+
+
+    Route::get('/users', [UserController::class, 
+    'listAllUsers'])->name('ListAllUsers');
+
+    Route::get('/users/{uid}', 
+    [UserController::class, 
+    'listUsers'])->name('ListUsers');
+
+   
