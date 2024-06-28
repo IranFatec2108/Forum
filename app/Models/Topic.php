@@ -14,5 +14,8 @@ class Topic extends Model
         'description',
         'status'
     ];
+<<<<<<< HEAD
            
+=======
+>>>>>>> 50c062ae1c59dc6a034edd3c2640c42cf8c7e966
 }

@@ -1,9 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+=======
+use App\Http\Controllers\UserController; 
+use App\Http\Controllers\AuthController;
+
+
+>>>>>>> 50c062ae1c59dc6a034edd3c2640c42cf8c7e966
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +21,7 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
 Route::get('/', 
 [AuthController::class, 'teste'])->name('teste');
 
@@ -55,3 +63,34 @@ Route::middleware('auth')->group(function () {
     Route::match(['get', 'post'], '/listAllPosts',
     [PostController::class, 'listAllPosts'])->name('listAllPosts');
 });
+=======
+
+    Route::match(
+        ['get' ,'post'],
+        '/login',
+        [AuthController::class, 'loginUser']
+    )->name('login');
+
+    Route::match(
+        ['get' ,'post'],
+        '/logout',
+        [AuthController::class, 'logoutUser']
+    )->name('logout');
+
+    Route::match(
+        ['get' ,'post'],
+        '/register',
+        [UserController::class, 'registerUser']
+    )->name('register');
+
+
+    Route::middleware('auth')->group(function () {
+    Route::get('/users', [UserController::class, 
+    'listAllUsers'])->name('ListAllUsers');
+
+    Route::get('/users/{uid}', 
+    [UserController::class, 
+    'listUsers'])->name('ListUsers');
+
+    });
+>>>>>>> 50c062ae1c59dc6a034edd3c2640c42cf8c7e966
